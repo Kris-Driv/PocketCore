@@ -1,0 +1,13 @@
+# System files/folders
+.DS_STORE
+
+# IDE/Editor files
+.idea
+.vscode
+.workspace
+
+# Environment files
+.env
+
+# Libraries/Packages
+vendor

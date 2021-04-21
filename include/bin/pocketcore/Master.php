@@ -5,7 +5,6 @@ use Ratchet\ConnectionInterface;
 use Ratchet\MessageComponentInterface;
 
 use pocketcore\utils\Logger;
-use pocketcore\Server;
 
 class Master implements MessageComponentInterface {
     

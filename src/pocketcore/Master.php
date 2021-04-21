@@ -32,10 +32,9 @@ class Master implements MessageComponentInterface {
     }
     
     public function onMessage(ConnectionInterface $conn, $message){
-        var_dump($message);
         $this->getLogger('Message from ' . $conn->remoteAddress .': ' . $message);
 
-        $conn->send(json_encode(['message' => 'received back']));
+        $conn->send($message);
     }
     
     public function onError(ConnectionInterface $conn, \Exception $e){

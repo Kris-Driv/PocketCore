@@ -1,0 +1,11 @@
+{
+    "require": {
+        "cboden/ratchet": "^0.3.4",
+        "textalk/websocket": "^1.5"
+    },
+    "autoload": {
+        "psr-0": {
+            "pocketcore": "src"
+        }
+    }
+}

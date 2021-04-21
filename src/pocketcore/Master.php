@@ -23,27 +23,19 @@ class Master implements MessageComponentInterface {
         return $this->logger;
     }
     
-    /**
-     * Called when new server is trying to connect
-     * 
-     * @void
-     */
     public function onOpen(ConnectionInterface $conn){
         $this->getLogger()->info($conn->remoteAddress . " connected.");
     }
-    
-    /**
-     * Called when server is making a request (API)
-     * 
-     * @param ConnectionInterface $conn
-     * @param string $msg
-     */
-    public function onMessage(ConnectionInterface $conn, $message){
-        
+
+    public function onClose(ConnectionInterface $conn){
+        $this->getLogger()->info($conn->remoteAddress . " disconnected.");
     }
     
-    public function onClose(ConnectionInterface $conn){
-        
+    public function onMessage(ConnectionInterface $conn, $message){
+        var_dump($message);
+        $this->getLogger('Message from ' . $conn->remoteAddress .': ' . $message);
+
+        $conn->send(json_encode(['message' => 'received back']));
     }
     
     public function onError(ConnectionInterface $conn, \Exception $e){

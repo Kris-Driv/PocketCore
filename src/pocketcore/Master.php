@@ -32,6 +32,7 @@ class Master implements MessageComponentInterface {
     }
     
     public function onMessage(ConnectionInterface $conn, $message){
+        var_dump($message);
         $this->getLogger('Message from ' . $conn->remoteAddress .': ' . $message);
 
         $conn->send($message);
